@@ -13,4 +13,7 @@ class Clinic
         $this->address = $address;
     }
 
+    public function setArrayDoctors($name, $surname){
+        $this->arrayDoctors[$surname] = $name;
+    }
 }
