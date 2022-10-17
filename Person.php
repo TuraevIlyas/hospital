@@ -7,13 +7,16 @@ class Person
     protected string $gender;
     protected int $age;
 
-    public function setFullInfo($name, $surname, $gender, $age){
-        $this->name=$name;
-        $this->surname=$surname;
-        $this->gender=$gender;
-        $this->age=$age;
+    public function setFullInfo($name, $surname, $gender, $age)
+    {
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->gender = $gender;
+        $this->age = $age;
     }
-    public function getFullInfo(){
+
+    public function getFullInfo()
+    {
         return "{$this->name}" . "{$this->surname}" . "{$this->gender}" . "{$this->age}";
     }
 }
