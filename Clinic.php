@@ -5,12 +5,6 @@ class Clinic
 {
     protected array $arrayDoctors = [];
     protected array $arrayPatients = [];
-    protected string $address;
-
-    public function __construct($address)
-    {
-        $this->address = $address;
-    }
 
     public function setArrayDoctors($name, $surname)
     {
