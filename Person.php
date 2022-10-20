@@ -5,18 +5,20 @@ class Person
     protected string $name;
     protected string $surname;
     protected string $gender;
+    protected string $person_id;
     protected int $age;
 
-    public function setFullInfo($name, $surname, $gender, $age)
+    public function __construct($name, $surname, $gender, $age)
     {
         $this->name = $name;
         $this->surname = $surname;
         $this->gender = $gender;
         $this->age = $age;
+        $this->person_id = uniqid();
     }
 
-    public function getFullInfo()
+    public function getFullInfo(): string
     {
-        return "{$this->name}" . "{$this->surname}" . "{$this->gender}" . "{$this->age}";
+        return "{$this->name} " . "{$this->surname} " . "{$this->gender} " . "{$this->age} " . "{$this->person_id}";
     }
 }
