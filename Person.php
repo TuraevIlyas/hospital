@@ -21,6 +21,7 @@ class Person
 
     public function getFullInfo(): string
     {
-        return "{$this->name} " . "{$this->surname} " . "{$this->gender} " . "{$this->age} " . "{$this->person_id}";
+        return "$this->name " . "$this->surname " . "$this->gender " . "$this->age " . "$this->person_id";
     }
 }
+

@@ -1,6 +1,5 @@
 <?php
 
-
 class Clinic
 {
     protected array $arrayDoctors = [];
