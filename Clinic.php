@@ -28,4 +28,9 @@ class Clinic
         return $this->arrayDoctors[$surname];
     }
 
+    public function getArrayPatient($surname)
+    {
+        return $this->arrayPatients[$surname];
+    }
+
 }
