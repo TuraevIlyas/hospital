@@ -9,7 +9,7 @@ class Person
     protected string $addressClinic;
     protected int $age;
 
-    public function __construct($name, $surname, $gender, $age, $addressClinic)
+    public function __construct($name, $surname, $gender, $age, $addressClinic, $person_id)
     {
         $this->name = $name;
         $this->surname = $surname;
