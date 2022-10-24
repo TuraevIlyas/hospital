@@ -23,5 +23,10 @@ class Person
     {
         return "$this->name " . "$this->surname " . "$this->gender " . "$this->age " . "$this->person_id";
     }
+
+
+    public function getPersonId(){
+        return $this->person_id;
+    }
 }
 

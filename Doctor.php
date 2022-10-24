@@ -16,8 +16,8 @@ class Doctor extends Person
     {
         $rand = rand(0, 100);
         if ($rand > 50) {
-            return "Дышите...";
-        } else return "Не дышите...";
+            return "Breathe...";
+        } else return "Не breathe...";
     }
 
     public function setArray($patient_id)
