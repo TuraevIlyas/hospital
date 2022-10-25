@@ -1,24 +1,16 @@
 <?php
 
-namespace src\Main;
-
 class Clinic
 {
     protected array $arrayDoctors = [];
     protected array $arrayPatients = [];
-    protected string $address;
-
-    public function __construct($address)
-    {
-        $this->address = $address;
-    }
 
     public function setArrayDoctors($name, $surname)
     {
         $this->arrayDoctors[$surname] = $name;
     }
 
-    public function setArrayPatients($name, $surname)
+    public function setArrayPatients    ($name, $surname)
     {
         $this->arrayPatients[$surname] = $name;
     }
@@ -26,6 +18,11 @@ class Clinic
     public function getArrayDoctor($surname)
     {
         return $this->arrayDoctors[$surname];
+    }
+
+    public function getArrayPatient($surname)
+    {
+        return $this->arrayPatients[$surname];
     }
 
 }
