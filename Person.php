@@ -9,7 +9,7 @@ class Person
     protected string $addressClinic;
     protected int $age;
 
-    public function __construct($name, $surname, $gender, $age, $addressClinic, $personId)
+    public function __construct($name, $surname, $gender, $age, $addressClinic)
     {
         $this->name = $name;
         $this->surname = $surname;
@@ -21,7 +21,7 @@ class Person
 
     public function getFullInfo(): string
     {
-        return "$this->name " . "$this->surname " . "$this->gender " . "$this->age " . "$this->personId";
+        return "$this->name " . "$this->surname " . "$this->gender " . "$this->age " . "$this->addressClinic";
     }
 
 
