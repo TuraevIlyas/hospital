@@ -25,7 +25,8 @@ class Person
     }
 
 
-    public function getPersonId(){
+    public function getPersonId(): string
+    {
         return $this->personId;
     }
 }
