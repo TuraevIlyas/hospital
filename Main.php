@@ -6,7 +6,7 @@ echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
 while(TRUE) {
     $clinic = new Clinic();
     $doctor = new Doctor();
-    $pacient = new Pacient();
+    $patient = new Patient();
     readline();
 }
 
