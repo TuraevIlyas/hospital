@@ -10,7 +10,7 @@ class Clinic
         $this->arrayDoctors[$surname] = $name;
     }
 
-    public function setArrayPatients    ($name, $surname)
+    public function setArrayPatients($name, $surname)
     {
         $this->arrayPatients[$surname] = $name;
     }
