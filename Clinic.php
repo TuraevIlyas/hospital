@@ -21,7 +21,7 @@ class Clinic
         return $this->nameClinic;
     }
 
-    public static function setArrayDoctors(string $personId, string $name, string $surname, string $specialization): void
+    public function setArrayDoctors(string $personId, string $name, string $surname, string $specialization): void
     {
         self::$arrayDoctors[$personId] = "Dr.$name $surname Specialization - $specialization";
     }
@@ -31,7 +31,7 @@ class Clinic
         return implode(self::$arrayDoctors) . PHP_EOL;
     }
 
-    public static function setArrayPatients(string $personId, string $name, string $surname): void
+    public function setArrayPatients(string $personId, string $name, string $surname): void
     {
         self::$arrayPatients[$personId] = "$name $surname";
     }
