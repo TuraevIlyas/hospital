@@ -2,12 +2,11 @@
 
 class Patient extends Person
 {
-    public array $diseases = [];
+    private array $diseases= [];
 
-    public function __construct($name, $surname, $gender, $age, $addressClinic, $personId, $diseases)
+    public function __construct($name, $surname, $gender, $age)
     {
-        parent::__construct($name, $surname, $gender, $age, $addressClinic);
-        $this->diseases = $diseases;
+        parent::__construct($name, $surname, $gender, $age);
     }
 
     public function ageCheck()
@@ -18,10 +17,14 @@ class Patient extends Person
             echo "U 2 lil' lad, " . $this->name . ". Get off zoomer!!!";
         }
     }
+    public function setDiseases($disease)
+    {
+        $this->diseases=$disease[]=$disease;
+    }
 
     public function getFullInfo(): string
     {
-        parent::getFullInfo();
-        return $this->disease;
+
+        return parent::getFullInfo() . $this->diseases;
     }
 }
