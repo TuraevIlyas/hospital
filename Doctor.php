@@ -20,6 +20,15 @@ class Doctor extends Person
         } else return "Не дышите...";
     }
 
+    public function setSpecialization(string $specialization): void
+    {
+        $this->specialization=$specialization;
+    }
+
+    public function getSpecialization(): string
+    {
+        return $this->specialization;
+    }
     public function setArray($patientId)
     {
         $this->arrayDoctorPatients[$patientId] = "$this->name $this->surname";
@@ -41,6 +50,6 @@ class Doctor extends Person
     }
     public function getFullInfo(): string
     {
-        return parent::getFullInfo() . PHP_EOL . "Specialization - $this->specialization";
+        return parent::getFullInfo() . PHP_EOL . "Specialization - $this->specialization" . PHP_EOL . PHP_EOL;
     }
 }

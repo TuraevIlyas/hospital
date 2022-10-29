@@ -2,7 +2,7 @@
 
 class Patient extends Person
 {
-    private array $diseases= [];
+    private array $diseases = [];
 
     public function __construct($name, $surname, $gender, $age)
     {
@@ -17,11 +17,20 @@ class Patient extends Person
             echo "U 2 lil' lad, " . $this->name . ". Get off zoomer!!!";
         }
     }
-    public function setDiseases($disease)
+    public function setDiseases($disease): void
     {
-        $this->diseases=$disease[]=$disease;
+        $newDiseases = [];
+        $countOfArray = count($disease);
+        for ($i=1; $i <=rand(1,3); $i++) {
+            $newDiseases[] = $disease[rand(0, $countOfArray - 1)];
+        }
+        $this->diseases=array_unique($newDiseases);
     }
 
+    public function getDiseases(): string
+    {
+        return implode(', ',$this->diseases);
+    }
     public function getFullInfo(): string
     {
 
