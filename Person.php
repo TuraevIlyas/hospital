@@ -64,6 +64,7 @@ abstract class Person
 
     public function getFullInfo(): string
     {
-        return "$this->name " . "$this->surname " . "$this->gender " . "$this->age " . "$this->personId";
+        return "Name - $this->name" . "Surname - $this->surname" . "Gender - $this->gender" . PHP_EOL ."Age - $this->age" . PHP_EOL .
+            "Personal id - $this->personId";
     }
 }
