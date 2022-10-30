@@ -12,14 +12,6 @@ class Doctor extends Person
         $this->specialization = $info['specialization'];
     }
 
-    protected function breatheCheck(): string
-    {
-        $rand = rand(0, 100);
-        if ($rand > 50) {
-            return "Дышите...";
-        } else return "Не дышите...";
-    }
-
     public function setSpecialization(string $specialization): void
     {
         $this->specialization=$specialization;
