@@ -9,21 +9,12 @@ class Patient extends Person
         parent::__construct($info);
     }
 
-    public function ageCheck()
-    {
-        if ($this->age >= 18) {
-            echo "You are welcome, Mr " . $this->surname . ". We are happy to see you!!!";
-        } else {
-            echo "U 2 lil' lad, " . $this->name . ". Get off zoomer!!!";
-        }
-    }
     public function setDiseases(): void
     {
-        $illnesses = file('../data/diseases.txt');
-        $this->diseases = [];
-        $countOfArray = count($illnesses);
+        $diseases = file('../data/diseases.txt');
+        $countOfArray = count($diseases);
         for ($i=1; $i <=rand(1,3); $i++) {
-            $this->diseases[] = $illnesses[rand(0, $countOfArray - 1)];
+            $this->diseases[] = $diseases[rand(0, $countOfArray - 1)];
         }
         $this->diseases=array_unique($this->diseases);
     }
@@ -35,7 +26,6 @@ class Patient extends Person
 
     public function getFullInfo(): string
     {
-
         return parent::getFullInfo() . $this->diseases;
     }
 }
