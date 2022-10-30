@@ -1,6 +1,5 @@
 <?php
 
-namespace Base\Models;
 
 class Clinic
 {

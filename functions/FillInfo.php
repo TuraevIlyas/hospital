@@ -1,10 +1,10 @@
 <?php
 
 require 'Randomizer.php';
-
-use Base\Models\Doctor;
-use Base\Models\Clinic;
-use Base\Models\Patient;
+require '..\Person.php';
+require '..\Doctor.php';
+require '..\Clinic.php';
+require '..\Patient.php';
 
 function fillInfo(int $amountDoctors, int $amountPatients): void {
     for ($i=1; $i<=$amountDoctors; $i++){
