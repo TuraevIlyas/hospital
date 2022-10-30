@@ -4,7 +4,6 @@ class Doctor extends Person
 {
     protected array $arrayDoctorPatients = [];
     protected string $specialization;
-    private array $memberId = [];
 
     public function __construct($info)
     {
@@ -21,25 +20,7 @@ class Doctor extends Person
     {
         return $this->specialization;
     }
-    public function setArray($patientId)
-    {
-        $this->arrayDoctorPatients[$patientId] = "$this->name $this->surname";
-    }
 
-    public function getArray($patientId, $name, $surname)
-    {
-        print_r($this->arrayDoctorPatients);
-    }
-
-    public function getElement($patientId, $name, $surname)
-    {
-
-    }
-
-    public function compile($personId, $name, $surname)
-    {
-        $this->memberId[$personId] = "$name $surname";
-    }
     public function getFullInfo(): string
     {
         return parent::getFullInfo() . PHP_EOL . "Specialization - $this->specialization" . PHP_EOL . PHP_EOL;
