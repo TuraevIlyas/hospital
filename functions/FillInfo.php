@@ -2,9 +2,9 @@
 
 require 'Randomizer.php';
 
+use Base\Models\Doctor;
 use Base\Models\Clinic;
 use Base\Models\Patient;
-use Base\Models\Doctor;
 
 function fillInfo(int $amountDoctors, int $amountPatients): void {
     for ($i=1; $i<=$amountDoctors; $i++){
@@ -18,3 +18,4 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
     }
 }
 fillInfo(3, 13);
+print_r(Clinic::getArrayDoctors());
