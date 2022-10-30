@@ -3,7 +3,6 @@
 
 class Doctor extends Person
 {
-    protected array $arrayDoctorPatients = [];
     protected string $specialization;
 
     public function __construct($info)
