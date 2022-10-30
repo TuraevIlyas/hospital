@@ -26,9 +26,9 @@ class Clinic
         self::$arrayDoctors[$personId] = "Dr.$name $surname Specialization - $specialization";
     }
 
-    public static function getArrayDoctors(): string
+    public static function getArrayDoctors(): array
     {
-        return implode(self::$arrayDoctors) . PHP_EOL;
+        return self::$arrayDoctors;
     }
 
     public static function setArrayPatients(string $personId, string $name, string $surname): void
@@ -36,9 +36,9 @@ class Clinic
         self::$arrayPatients[$personId] = "$name $surname";
     }
 
-    public static function getArrayPatients(): string
+    public static function getArrayPatients(): array
     {
-        return implode(self::$arrayPatients) . PHP_EOL;
+        return self::$arrayPatients;
     }
 
     public static function getDoctor(string $surname): string

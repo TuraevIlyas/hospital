@@ -6,8 +6,7 @@ spl_autoload_register(function ($className){
     include '../' . $className . '.php';
 });
 
-function fillInfo($nameClinic, $amountDoctors, $amountPatients): void {
-    $clinic = new Clinic($nameClinic);
+function fillInfo(int $amountDoctors, int $amountPatients): void {
     for ($i=1; $i<=$amountDoctors; $i++){
          $doctor = new Doctor(fillMembers('name'), fillMembers('surname'), fillMembers('gender'),
             fillMembers('age'), fillMembers('specialization'));
@@ -20,6 +19,6 @@ function fillInfo($nameClinic, $amountDoctors, $amountPatients): void {
         Clinic::setArrayPatients($patient->getPersonId(), $patient->getName(), $patient->getSurname());
     }
 }
-fillInfo('CareHealth', 3, 13);
+fillInfo(3, 13);
 print_r(Clinic::getArrayDoctors());
 print_r(Clinic::getArrayPatients());
