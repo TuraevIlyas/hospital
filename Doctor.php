@@ -6,10 +6,10 @@ class Doctor extends Person
     protected string $specialization;
     private array $memberId = [];
 
-    public function __construct($name, $surname, $gender, $age, $specialization)
+    public function __construct($info)
     {
-        parent::__construct($name, $surname, $gender, $age);
-        $this->specialization = $specialization;
+        parent::__construct($info);
+        $this->specialization = $info['specialization'];
     }
 
     protected function breatheCheck(): string

@@ -4,9 +4,9 @@ class Patient extends Person
 {
     private array $diseases = [];
 
-    public function __construct($name, $surname, $gender, $age)
+    public function __construct($info)
     {
-        parent::__construct($name, $surname, $gender, $age);
+        parent::__construct($info);
     }
 
     public function ageCheck()

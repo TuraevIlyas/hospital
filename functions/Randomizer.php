@@ -1,6 +1,6 @@
 <?php
 
-function fillMembers($var){
+function fillMembers(){
     $firstName = file('../data/firstname.txt');
     $secondName = file('../data/secondname.txt');
     $illnesses = file('../data/diseases.txt');
@@ -13,5 +13,5 @@ function fillMembers($var){
         'specialization' => $specialization[rand(0,3)],
         'illnesses' => array_slice($illnesses, rand(0,count($illnesses)-1), count($illnesses)-1)
     ];
-    return $info[$var];
+    return $info;
 }

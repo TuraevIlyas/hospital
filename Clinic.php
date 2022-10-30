@@ -23,7 +23,7 @@ class Clinic
 
     public static function setArrayDoctors(string $personId, string $name, string $surname, string $specialization): void
     {
-        self::$arrayDoctors[$personId] = "Dr.$name $surname Specialization - $specialization";
+        self::$arrayDoctors[$personId] = "Dr. $name $surname Specialization - $specialization";
     }
 
     public static function getArrayDoctors(): array
