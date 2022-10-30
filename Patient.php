@@ -17,20 +17,22 @@ class Patient extends Person
             echo "U 2 lil' lad, " . $this->name . ". Get off zoomer!!!";
         }
     }
-    public function setDiseases($disease): void
+    public function setDiseases(): void
     {
-        $newDiseases = [];
-        $countOfArray = count($disease);
+        $illnesses = file('../data/diseases.txt');
+        $this->diseases = [];
+        $countOfArray = count($illnesses);
         for ($i=1; $i <=rand(1,3); $i++) {
-            $newDiseases[] = $disease[rand(0, $countOfArray - 1)];
+            $this->diseases[] = $illnesses[rand(0, $countOfArray - 1)];
         }
-        $this->diseases=array_unique($newDiseases);
+        $this->diseases=array_unique($this->diseases);
     }
 
-    public function getDiseases(): string
+    public function getDiseases(): array
     {
-        return implode(', ',$this->diseases);
+        return $this->diseases;
     }
+
     public function getFullInfo(): string
     {
 

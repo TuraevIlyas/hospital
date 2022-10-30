@@ -67,20 +67,4 @@ abstract class Person
         return "Name - $this->name" . "Surname - $this->surname" . "Gender - $this->gender" . PHP_EOL ."Age - $this->age" . PHP_EOL .
             "Personal id - $this->personId";
     }
-//
-//    public function fillMembers(string $var): mixed
-//    {
-//        $firstName = file('data/firstname.txt');
-//        $secondName = file('data/secondname.txt');
-//        $illnesses = file('data/diseases.txt');
-//        $specialization = file('data/specialization.txt');
-//        $info = ['name'=> $firstName[rand(0,count($firstName)-1)],
-//            'surname'=> $secondName[rand(0,count($secondName)-1)],
-//            'gender' => $this->gender[rand(0,0)],
-//            'age' => rand(18, 90),
-//            'specialization' => $specialization[rand(0,3)],
-//            'illnesses' => array_slice($illnesses, rand(0,count($illnesses)-1), count($illnesses)-1)
-//        ];
-//        return $info[$var];
-//    }
 }
