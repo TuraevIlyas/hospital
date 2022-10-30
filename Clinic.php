@@ -1,5 +1,7 @@
 <?php
 
+namespace Base\Models;
+
 class Clinic
 {
     private static array $arrayDoctors = [];

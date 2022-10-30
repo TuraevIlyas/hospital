@@ -1,5 +1,7 @@
 <?php
 
+namespace Base\Models;
+
 abstract class Person
 {
     protected string $name;

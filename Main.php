@@ -2,10 +2,10 @@
 
 require 'functions/Randomizer.php';
 require 'functions/FillInfo.php';
-
-spl_autoload_register(function ($className){
-    include $className . '.php';
-});
+//
+//spl_autoload_register(function ($className){
+//    include $className . '.php';
+//});
 
 echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
 while(TRUE) {

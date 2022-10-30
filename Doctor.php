@@ -1,5 +1,7 @@
 <?php
 
+namespace Base\Models;
+
 class Doctor extends Person
 {
     protected array $arrayDoctorPatients = [];
