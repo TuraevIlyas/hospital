@@ -17,7 +17,6 @@ closedir($catalog);
 
 require 'Randomizer.php';
 
-
 function fillInfo(int $amountDoctors, int $amountPatients): void {
     for ($i=1; $i<=$amountDoctors; $i++){
         $doctor = new Doctor(fillMembers());
