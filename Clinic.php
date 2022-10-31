@@ -1,28 +1,49 @@
 <?php
 
+
 class Clinic
 {
-    protected array $arrayDoctors = [];
-    protected array $arrayPatients = [];
+    private static array $arrayDoctors = [];
+    private static array $arrayPatients = [];
+    private string $nameClinic;
 
-    public function setArrayDoctors($name, $surname)
+    public function __construct($nameClinic)
     {
-        $this->arrayDoctors[$surname] = $name;
+        $this->nameClinic=$nameClinic;
     }
 
-    public function setArrayPatients($name, $surname)
+    public function setNameClinic(string $nameClinic): void
     {
-        $this->arrayPatients[$surname] = $name;
+        $this->nameClinic = $nameClinic;
     }
 
-    public function getArrayDoctor($surname)
+    public function getNameClinic(): string
     {
-        return $this->arrayDoctors[$surname];
+        return $this->nameClinic;
     }
 
-    public function getArrayPatient($surname)
+    public static function setArrayDoctors(string $personId, string $name, string $surname, string $specialization): void
     {
-        return $this->arrayPatients[$surname];
+        self::$arrayDoctors[$personId] = "Dr. $name $surname Specialization - $specialization";
     }
 
+    public static function getArrayDoctors(): array
+    {
+        return self::$arrayDoctors;
+    }
+
+    public static function setArrayPatients(string $personId, string $name, string $surname): void
+    {
+        self::$arrayPatients[$personId] = "$name $surname";
+    }
+
+    public static function getArrayPatients(): array
+    {
+        return self::$arrayPatients;
+    }
+
+    public static function getDoctor(string $surname): string
+    {
+        return self::$arrayDoctors[$surname] . " $surname";
+    }
 }

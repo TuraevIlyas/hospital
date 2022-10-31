@@ -1,5 +1,6 @@
 <?php
 
+
 abstract class Person
 {
     protected string $name;
@@ -8,12 +9,12 @@ abstract class Person
     protected string $personId;
     protected int $age;
 
-    public function __construct($name, $surname, $gender, $age)
+    public function __construct($info)
     {
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->gender = $gender;
-        $this->age = $age;
+        $this->name = $info['name'];
+        $this->surname = $info['surname'];
+        $this->gender = $info['gender'];
+        $this->age = $info['age'];
         $this->personId = uniqid();
     }
 
@@ -64,6 +65,7 @@ abstract class Person
 
     public function getFullInfo(): string
     {
-        return "$this->name " . "$this->surname " . "$this->gender " . "$this->age " . "$this->personId";
+        return "Name - $this->name" . "Surname - $this->surname" . "Gender - $this->gender" . PHP_EOL ."Age - $this->age" . PHP_EOL .
+            "Personal id - $this->personId";
     }
 }

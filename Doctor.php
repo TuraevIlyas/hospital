@@ -1,42 +1,29 @@
 <?php
 
+
 class Doctor extends Person
 {
     protected array $arrayDoctorPatients = [];
     protected string $specialization;
-    private array $member_id = [];
 
-    public function __construct($name, $surname, $gender, $age, $addressClinic, $specialization)
+    public function __construct($info)
     {
-        parent::__construct($name, $surname, $gender, $age, $addressClinic);
-        $this->specialization = $specialization;
+        parent::__construct($info);
+        $this->specialization = $info['specialization'];
     }
 
-    protected function breatheCheck(): string
+    public function setSpecialization(string $specialization): void
     {
-        $rand = rand(0, 100);
-        if ($rand > 50) {
-            return "Дышите...";
-        } else return "Не дышите...";
+        $this->specialization=$specialization;
     }
 
-    public function setArray($patient_id)
+    public function getSpecialization(): string
     {
-        $this->arrayDoctorPatients[$patient_id] = "$this->name $this->surname";
+        return $this->specialization;
     }
 
-    public function getArray($patient_id, $name, $surname)
+    public function getFullInfo(): string
     {
-        print_r($this->arrayDoctorPatients);
-    }
-
-    public function getElement($patient_id, $name, $surname)
-    {
-
-    }
-
-    public function compile($person_id, $name, $surname)
-    {
-        $this->member_id[$person_id] = "$name $surname";
+        return parent::getFullInfo() . PHP_EOL . "Specialization - $this->specialization" . PHP_EOL . PHP_EOL;
     }
 }

@@ -1,27 +1,32 @@
 <?php
 
+
 class Patient extends Person
 {
-    public array $diseases = [];
+    private array $diseases = [];
 
-    public function __construct($name, $surname, $gender, $age, $addressClinic, $personId, $diseases)
+    public function __construct($info)
     {
-        parent::__construct($name, $surname, $gender, $age, $addressClinic);
-        $this->diseases = $diseases;
+        parent::__construct($info);
     }
 
-    public function ageCheck()
+    public function setDiseases(): void
     {
-        if ($this->age >= 18) {
-            echo "You are welcome, Mr " . $this->surname . ". We are happy to see you!!!";
-        } else {
-            echo "U 2 lil' lad, " . $this->name . ". Get off zoomer!!!";
+        $diseases = file('../data/diseases.txt');
+        $countOfArray = count($diseases);
+        for ($i=1; $i <=rand(1,3); $i++) {
+            $this->diseases[] = $diseases[rand(0, $countOfArray - 1)];
         }
+        $this->diseases=array_unique($this->diseases);
+    }
+
+    public function getDiseases(): array
+    {
+        return $this->diseases;
     }
 
     public function getFullInfo(): string
     {
-        parent::getFullInfo();
-        return $this->disease;
+        return parent::getFullInfo() . $this->diseases;
     }
 }
