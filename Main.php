@@ -1,7 +1,6 @@
 <?php
 
 require_once 'Person.php';
-require_once 'functions\FillInfo.php';
 require_once 'Doctor.php';
 require_once 'Clinic.php';
 
@@ -9,12 +8,11 @@ require_once 'Clinic.php';
 //    include $className . '.php';
 //});
 
-$clinic = new Clinic($this->nameClinic);
-$patient = new Patient($this->info);
+$clinic = new Clinic('Kashenko');
 
 echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
 echo '1 [Update Database]' . PHP_EOL;
-echo '2 [Doctors]';
+echo '2 [Doctors]' . PHP_EOL;
 
 while(TRUE) {
 
@@ -26,8 +24,11 @@ while(TRUE) {
     elseif ($input === 2){
         return getDoctor();
     }
+    elseif ($input === 'exit'){
+        exit;
+    }
     else {
-        echo '---';
+        echo '---' . PHP_EOL;
     }
 
 }
