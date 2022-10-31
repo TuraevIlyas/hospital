@@ -1,6 +1,6 @@
 <?php
 
-function fillMembers(): array{
+function fillMember(): array{
     $firstName = file('../data/firstname.txt');
     $secondName = file('../data/secondname.txt');
     $specialization = file('../data/specialization.txt');

@@ -1,6 +1,6 @@
 <?php
 
-
+//require '..\Person.php';
 //$dir = "..\..\oop";
 //$catalog = opendir($dir);
 //while ($filename = readdir($catalog))
@@ -22,7 +22,7 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
 
     for ($i=1; $i<=$amountDoctors; $i++)
     {
-        $doctor = new Doctor(fillMembers());
+        $doctor = new Doctor(fillMember());
         Clinic::setArrayDoctors(
             $doctor->getPersonId(),
             $doctor->getName(),
@@ -33,7 +33,7 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
     }
     for ($a=1; $a <= $amountPatients; $a++)
     {
-        $patient = new Patient(fillMembers());
+        $patient = new Patient(fillMember());
         $patient->setDiseases();
         Clinic::setArrayPatients(
             $patient->getPersonId(),
