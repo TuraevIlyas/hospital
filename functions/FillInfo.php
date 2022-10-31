@@ -14,7 +14,7 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
             $doctor->getName(),
             $doctor->getSurname(),
             $doctor->getSpecialization(),
-            $doctor->setArrayDoctorPatient()
+            $doctor->getArrayDoctorPatient()
         );
     }
     for ($a=1; $a <= $amountPatients; $a++){
@@ -31,4 +31,3 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
     }
 }
 fillInfo(3, 13);
-print_r(Clinic::getArrayDoctors());

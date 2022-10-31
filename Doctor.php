@@ -3,13 +3,14 @@
 
 class Doctor extends Person
 {
-    private array $arrayDoctorPatient = [];
+    private array $arrayDoctorPatient;
     protected string $specialization;
 
     public function __construct($info)
     {
         parent::__construct($info);
         $this->specialization = $info['specialization'];
+        $this->arrayDoctorPatient = [];
     }
 
     public function setArrayDoctorPatient(string $personId = NULL,array $arrayDoctorPatient = NULL): void

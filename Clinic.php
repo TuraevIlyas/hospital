@@ -22,15 +22,10 @@ class Clinic
         return $this->nameClinic;
     }
 
-    public static function setArrayDoctors(string $personId, string $name, string $surname, string $specialization, $arrayDoctorPatients): void
+    public static function setArrayDoctors(string $personId, string $name, string $surname, string $specialization, array $arrayDoctorsPatient): void
     {
-        if(isset($arrayDoctorPatients)) {
-            $arr = implode(', ', $arrayDoctorPatients);
-            self::$arrayDoctors[$personId] = "Dr. $name $surname Specialization - $specialization, $arr";
-        }
-        else {
-            $arrayDoctorPatients = [];
-        };
+        $arr = implode(', ',$arrayDoctorsPatient);
+        self::$arrayDoctors[$personId] = "Dr. $name $surname Specialization - $specialization, $arr";
     }
 
     public static function getArrayDoctors(): array
@@ -53,8 +48,8 @@ class Clinic
 
     }
 
-    public static function getDoctor(string $surname): string
+    public static function getDoctor(string $personId): string
     {
-        return self::$arrayDoctors[$surname] . " $surname";
+        return self::$arrayDoctors[$personId];
     }
 }
