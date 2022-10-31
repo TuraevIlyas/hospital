@@ -1,12 +1,15 @@
 <?php
 
+require '..\Person.php';
+
 $dir = "..\..\hospital";
 $catalog = opendir($dir);
 while ($filename = readdir($catalog ))
 {
     if(strpos($filename, '.php')){
         $filename = $dir."/".$filename;
-        require($filename);
+
+        require $filename;
     }
 
 }
