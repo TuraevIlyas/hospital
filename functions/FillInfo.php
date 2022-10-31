@@ -1,22 +1,27 @@
 <?php
 
-$dir = "..\..\hospital";
-$catalog = opendir($dir);
-while ($filename = readdir($catalog ))
-{
-    if(strpos($filename, '.php')){
-        $filename = $dir."/".$filename;
-        require($filename);
-    }
 
-}
-closedir($catalog);
-
+//$dir = "..\..\oop";
+//$catalog = opendir($dir);
+//while ($filename = readdir($catalog))
+//{
+//    if(strpos($filename, '.php')){
+//        $filename = $dir."/".$filename;
+//        require($filename);
+//    }
+//}
+//closedir($catalog);
 require 'Randomizer.php';
+require  '..\Clinic.php';
+require '..\Person.php';
+require '..\Doctor.php';
+require '..\Patient.php';
 
 
 function fillInfo(int $amountDoctors, int $amountPatients): void {
-    for ($i=1; $i<=$amountDoctors; $i++){
+
+    for ($i=1; $i<=$amountDoctors; $i++)
+    {
         $doctor = new Doctor(fillMembers());
         Clinic::setArrayDoctors(
             $doctor->getPersonId(),
@@ -26,12 +31,18 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
             $doctor->getArrayDoctorPatient()
         );
     }
-    for ($a=1; $a <= $amountPatients; $a++){
+    for ($a=1; $a <= $amountPatients; $a++)
+    {
         $patient = new Patient(fillMembers());
         $patient->setDiseases();
-        Clinic::setArrayPatients($patient->getPersonId(), $patient->getName(), $patient->getSurname());
-
-
+        Clinic::setArrayPatients(
+            $patient->getPersonId(),
+            $patient->getName(),
+            $patient->getSurname()
+        );
+        $count = rand(0, $amountDoctors - 1);
+        $id = Clinic::getArrayKeysDoctors();
+        Clinic::addPatientToDoctor($id[$count], $patient->getSurname());
 //        $chainedPatient = array_rand(Clinic::getArrayPatients());
 //
 //        if (!isset($arrayPatients[$chainedPatient])) {
@@ -39,4 +50,5 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
 //        } else $a--;
     }
 }
-fillInfo(3, 13);
+fillInfo(3,13);
+print_r(Clinic::getArrayDoctors());
