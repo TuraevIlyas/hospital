@@ -1,22 +1,10 @@
 <?php
 
-//require '..\Person.php';
-//$dir = "..\..\oop";
-//$catalog = opendir($dir);
-//while ($filename = readdir($catalog))
-//{
-//    if(strpos($filename, '.php')){
-//        $filename = $dir."/".$filename;
-//        require($filename);
-//    }
-//}
-//closedir($catalog);
 require 'Randomizer.php';
 require  '..\Clinic.php';
 require '..\Person.php';
 require '..\Doctor.php';
 require '..\Patient.php';
-
 
 function fillInfo(int $amountDoctors, int $amountPatients): void {
 
