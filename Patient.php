@@ -5,14 +5,14 @@ class Patient extends Person
 {
     private array $diseases = [];
 
-    public function __construct($info)
+    public function __construct(array $info,string $prefix)
     {
-        parent::__construct($info);
+        parent::__construct($info, $prefix);
     }
 
     public function setDiseases(): void
     {
-        $diseases = file('../data/diseases.txt');
+        $diseases = file('data/diseases.txt');
         $countOfArray = count($diseases);
         for ($i=1; $i <=rand(1,3); $i++) {
             $this->diseases[] = $diseases[rand(0, $countOfArray - 1)];
@@ -23,10 +23,5 @@ class Patient extends Person
     public function getDiseases(): array
     {
         return $this->diseases;
-    }
-
-    public function getFullInfo(): string
-    {
-        return parent::getFullInfo() . $this->diseases;
     }
 }

@@ -9,13 +9,13 @@ abstract class Person
     protected string $personId;
     protected int $age;
 
-    public function __construct($info)
+    public function __construct(array $info, string $prefix)
     {
         $this->name = $info['name'];
         $this->surname = $info['surname'];
         $this->gender = $info['gender'];
         $this->age = $info['age'];
-        $this->personId = uniqid();
+        $this->personId = uniqid($prefix);
     }
 
     public function setName(string $name): void

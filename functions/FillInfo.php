@@ -1,16 +1,18 @@
 <?php
 
-require 'Randomizer.php';
-require  '..\Clinic.php';
-require '..\Person.php';
-require '..\Doctor.php';
-require '..\Patient.php';
+//require 'Randomizer.php';
+//require  '..\Clinic.php';
+//require '..\Person.php';
+//require '..\Doctor.php';
+//require '..\Patient.php';
+//
 
-function fillInfo(int $amountDoctors, int $amountPatients): void {
-
+function fillInfo(string $nameClinic,int $amountDoctors, int $amountPatients): void {
+    $clinic = new Clinic($nameClinic);
+    echo 'Welcome to the '. $clinic -> getNameClinic() . PHP_EOL;
     for ($i=1; $i<=$amountDoctors; $i++)
     {
-        $doctor = new Doctor(fillMember());
+        $doctor = new Doctor(fillMember(), 'D');
         Clinic::setArrayDoctors(
             $doctor->getPersonId(),
             $doctor->getName(),
@@ -18,25 +20,24 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
             $doctor->getSpecialization(),
             $doctor->getArrayDoctorPatient()
         );
+        Clinic::setFullArrayDoctorsId($doctor->getPersonId(), $doctor->getSurname(), $doctor->getName(), $i);
+        Clinic::setDoctorsId($doctor->getPersonId(), $i);
     }
+
     for ($a=1; $a <= $amountPatients; $a++)
     {
-        $patient = new Patient(fillMember());
+        $patient = new Patient(fillMember(), 'P');
         $patient->setDiseases();
         Clinic::setArrayPatients(
             $patient->getPersonId(),
             $patient->getName(),
-            $patient->getSurname()
+            $patient->getSurname(),
+            $patient->getDiseases()
         );
         $count = rand(0, $amountDoctors - 1);
         $id = Clinic::getArrayKeysDoctors();
-        Clinic::addPatientToDoctor($id[$count], $patient->getSurname());
-//        $chainedPatient = array_rand(Clinic::getArrayPatients());
-//
-//        if (!isset($arrayPatients[$chainedPatient])) {
-//            // TODO: link keys (patientId) amd values (doctorId) (to create a relations)
-//        } else $a--;
+        Clinic::addPatientToDoctor($id[$count], $patient->getSurname(), $patient->getPersonId());
+        Clinic::setFullArrayPatientsId($patient->getPersonId(), $patient->getSurname(), $patient->getName(), $a);
+        Clinic::setPatientsId($patient->getPersonId(), $a);
     }
 }
-fillInfo(3,13);
-print_r(Clinic::getArrayDoctors());
