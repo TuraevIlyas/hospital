@@ -9,12 +9,7 @@ class Clinic
     private static array $fullArrayPatientsId = [];
     private static array $patientsId = [];
     private static array $doctorsId = [];
-    private string $nameClinic;
-
-    public function __construct($nameClinic)
-    {
-        $this->nameClinic=$nameClinic;
-    }
+    private static string $nameClinic;
 
     public static function setDoctorsId(string $personId, int $count): void
     {
@@ -35,6 +30,7 @@ class Clinic
     {
         return self::$doctorsId[$count];
     }
+
     public static function setFullArrayDoctorsId(string $personId, string $surname, string $name, int $count): void
     {
         $var = str_replace(PHP_EOL, '' ,"($personId) Dr.$surname $name");
@@ -56,19 +52,20 @@ class Clinic
     {
         return self::$fullArrayPatientsId;
     }
+
     public static function getArrayKeysDoctors(): array
     {
         return array_keys(self::$arrayDoctors);
     }
 
-    public function setNameClinic(string $nameClinic): void
+    public static function setNameClinic(string $nameClinic): void
     {
-        $this->nameClinic = $nameClinic;
+        self::$nameClinic = $nameClinic;
     }
 
-    public function getNameClinic(): string
+    public static function getNameClinic(): string
     {
-        return $this->nameClinic;
+        return self::$nameClinic;
     }
 
     public static function setArrayDoctors(
@@ -84,6 +81,7 @@ class Clinic
         $var = str_replace(PHP_EOL, '', $info);
         self::$arrayDoctors[$personId] = $var;
     }
+
     public static function getArrayDoctors(): array
     {
         echo 'array of doctors: ' . PHP_EOL;

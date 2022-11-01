@@ -7,16 +7,29 @@ require 'Person.php';
 require 'Patient.php';
 require 'Doctor.php';
 
-echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
-echo '1 [Update Database]' . PHP_EOL;
-echo 'You can run this following commands' .
+$information = 'You can run this following commands, just enter number of commands -> ' .
     PHP_EOL . '[1] Get full current doctor information' .
     PHP_EOL . '[2] Get full current patient information'.
     PHP_EOL . '[3] Get full all doctors' .
     PHP_EOL . '[4] Get full all patients' .
+    PHP_EOL . "[5] Get clinic's name" .
+    PHP_EOL . '[6] Get commands' .
     PHP_EOL;
 
-fillInfo('CareHealth', 2, 5);
+echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
+echo '1 [Update Database]' . PHP_EOL;
+
+echo PHP_EOL . "Enter clinic name -> ";
+$nameClinic = readline();
+echo PHP_EOL . "Enter the number of doctors -> ";
+$amountDoctors = readline();
+echo PHP_EOL . "Enter the number of patients -> ";
+$amountPatients = readline();
+
+
+fillInfo($nameClinic, $amountDoctors, $amountPatients);
+
+echo $information;
 
 while(TRUE) {
     echo 'enter your action: ';
@@ -40,6 +53,12 @@ while(TRUE) {
     }
     elseif ($input == '4'){
         print_r(Clinic::getArrayPatients());
+    }
+    elseif ($input == '5'){
+        echo "You are in clinic " . Clinic::getNameClinic() . PHP_EOL;
+    }
+    elseif ($input == '6'){
+        echo $information;
     }
 }
 

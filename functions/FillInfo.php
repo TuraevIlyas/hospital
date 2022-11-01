@@ -8,8 +8,8 @@
 //
 
 function fillInfo(string $nameClinic,int $amountDoctors, int $amountPatients): void {
-    $clinic = new Clinic($nameClinic);
-    echo 'Welcome to the '. $clinic -> getNameClinic() . PHP_EOL;
+    Clinic::setNameClinic($nameClinic);
+    echo 'Welcome to the '. Clinic::getNameClinic() . PHP_EOL;
     for ($i=1; $i<=$amountDoctors; $i++)
     {
         $doctor = new Doctor(fillMember(), 'D');
