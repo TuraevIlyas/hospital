@@ -7,13 +7,13 @@ require 'Person.php';
 require 'Patient.php';
 require 'Doctor.php';
 
-$clinic = new Clinic('Kashenko');
-
 echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
 echo '1 [Update Database]' . PHP_EOL;
 echo 'You can run this following commands' .
-    PHP_EOL . '[1] Get full doctor information' .
-    PHP_EOL . "[2] Get full patient information".
+    PHP_EOL . '[1] Get full current doctor information' .
+    PHP_EOL . '[2] Get full current patient information'.
+    PHP_EOL . '[3] Get full all doctors' .
+    PHP_EOL . '[4] Get full all patients' .
     PHP_EOL;
 
 fillInfo('CareHealth', 2, 5);
@@ -34,6 +34,12 @@ while(TRUE) {
         $id = readline();
         $patientId = Clinic::getPatientsId($id);
         echo Clinic::getPatient($patientId);
+    }
+    elseif ($input =='3'){
+        print_r(Clinic::getArrayDoctors());
+    }
+    elseif ($input == '4'){
+        print_r(Clinic::getArrayPatients());
     }
 }
 
