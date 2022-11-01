@@ -13,7 +13,7 @@ class Doctor extends Person
         $this->arrayDoctorPatient = [];
     }
 
-    public function setArrayDoctorPatient(string $personId = NULL,array $arrayDoctorPatient = NULL): void
+    public function setArrayDoctorPatient(string $personId = NULL, array $arrayDoctorPatient = NULL): void
     {
         $this->arrayDoctorPatient[$personId] = $arrayDoctorPatient;
     }

@@ -1,16 +1,5 @@
 <?php
 
-//require '..\Person.php';
-//$dir = "..\..\oop";
-//$catalog = opendir($dir);
-//while ($filename = readdir($catalog))
-//{
-//    if(strpos($filename, '.php')){
-//        $filename = $dir."/".$filename;
-//        require($filename);
-//    }
-//}
-//closedir($catalog);
 require 'Randomizer.php';
 require  '..\Clinic.php';
 require '..\Person.php';
@@ -18,8 +7,9 @@ require '..\Doctor.php';
 require '..\Patient.php';
 
 
-function fillInfo(int $amountDoctors, int $amountPatients): void {
-
+function fillInfo(string $nameClinic,int $amountDoctors, int $amountPatients): void {
+    $clinic = new Clinic($nameClinic);
+    echo 'Welcome to the '. $clinic -> getNameClinic() . PHP_EOL;
     for ($i=1; $i<=$amountDoctors; $i++)
     {
         $doctor = new Doctor(fillMember());
@@ -38,17 +28,14 @@ function fillInfo(int $amountDoctors, int $amountPatients): void {
         Clinic::setArrayPatients(
             $patient->getPersonId(),
             $patient->getName(),
-            $patient->getSurname()
+            $patient->getSurname(),
+            $patient->getDiseases()
         );
         $count = rand(0, $amountDoctors - 1);
         $id = Clinic::getArrayKeysDoctors();
         Clinic::addPatientToDoctor($id[$count], $patient->getSurname());
-//        $chainedPatient = array_rand(Clinic::getArrayPatients());
-//
-//        if (!isset($arrayPatients[$chainedPatient])) {
-//            // TODO: link keys (patientId) amd values (doctorId) (to create a relations)
-//        } else $a--;
     }
 }
-fillInfo(3,13);
+fillInfo('CareHealth',2,5);
 print_r(Clinic::getArrayDoctors());
+print_r(Clinic::getArrayPatients());
