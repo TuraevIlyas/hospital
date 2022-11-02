@@ -1,5 +1,6 @@
 <?php
 
+require 'functions/filterInput.php';
 require 'functions/FillInfo.php';
 require 'functions/Randomizer.php';
 require 'Clinic.php';
@@ -21,10 +22,10 @@ echo '1 [Update Database]' . PHP_EOL;
 
 echo PHP_EOL . "Enter clinic name -> ";
 $nameClinic = readline();
-echo PHP_EOL . "Enter the number of doctors -> ";
-$amountDoctors = readline();
-echo PHP_EOL . "Enter the number of patients -> ";
-$amountPatients = readline();
+echo PHP_EOL . "Enter the amount of doctors -> ";
+$amountDoctors = filterInput();
+echo PHP_EOL . "Enter the amount of patients -> ";
+$amountPatients = filterInput();
 
 
 fillInfo($nameClinic, $amountDoctors, $amountPatients);
@@ -33,18 +34,18 @@ echo $information;
 
 while(TRUE) {
     echo 'enter your action: ';
-    $input = readline();
+    $input = filterInput();
     if ($input == '1'){
         print_r(Clinic::getFullArrayDoctorsId());
         echo 'choose doctor id and enter there -> ';
-        $id = readline();
+        $id = filterInput();
         $doctorId = Clinic::getDoctorsId($id);
         echo Clinic::getDoctor($doctorId);
     }
     elseif ($input == '2'){
         print_r(Clinic::getFullArrayPatientsId());
         echo 'choose patient id and enter there -> ';
-        $id = readline();
+        $id = filterInput();
         $patientId = Clinic::getPatientsId($id);
         echo Clinic::getPatient($patientId);
     }
