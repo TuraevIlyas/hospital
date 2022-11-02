@@ -9,12 +9,12 @@ require 'Patient.php';
 require 'Doctor.php';
 
 $information = 'You can run this following commands, just enter number of commands -> ' .
-    PHP_EOL . '[1] Get full current doctor information' .
-    PHP_EOL . '[2] Get full current patient information'.
-    PHP_EOL . '[3] Get full all doctors' .
-    PHP_EOL . '[4] Get full all patients' .
+    PHP_EOL . '[1] Get actual list of doctors' .
+    PHP_EOL . '[2] Get actual list of patients' .
+    PHP_EOL . "[3] Get doctors' detailed information" .
+    PHP_EOL . "[4] Get patients' detailed information" .
     PHP_EOL . "[5] Get clinic's name" .
-    PHP_EOL . '[6] Get commands' .
+    PHP_EOL . '[6] Commands list' .
     PHP_EOL;
 
 echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
@@ -32,33 +32,28 @@ fillInfo($nameClinic, $amountDoctors, $amountPatients);
 
 echo $information;
 
-while(TRUE) {
-    echo 'enter your action: ';
+while (TRUE) {
+    echo 'Enter your action: ';
     $input = filterInput();
-    if ($input == '1'){
+    if ($input == '1') {
         print_r(Clinic::getFullArrayDoctorsId());
-        echo 'choose doctor id and enter there -> ';
+        echo 'Enter the number of the required doctor -> ';
         $id = filterInput();
         $doctorId = Clinic::getDoctorsId($id);
         echo Clinic::getDoctor($doctorId);
-    }
-    elseif ($input == '2'){
+    } elseif ($input == '2') {
         print_r(Clinic::getFullArrayPatientsId());
-        echo 'choose patient id and enter there -> ';
+        echo 'Enter the number of the required patient -> ';
         $id = filterInput();
         $patientId = Clinic::getPatientsId($id);
         echo Clinic::getPatient($patientId);
-    }
-    elseif ($input =='3'){
+    } elseif ($input == '3') {
         print_r(Clinic::getArrayDoctors());
-    }
-    elseif ($input == '4'){
+    } elseif ($input == '4') {
         print_r(Clinic::getArrayPatients());
-    }
-    elseif ($input == '5'){
-        echo "You are in clinic " . Clinic::getNameClinic() . PHP_EOL;
-    }
-    elseif ($input == '6'){
+    } elseif ($input == '5') {
+        echo "You are working with clinic " . Clinic::getNameClinic() . " now." . PHP_EOL;
+    } elseif ($input == '6') {
         echo $information;
     }
 }
