@@ -1,8 +1,5 @@
 <?php
 
-//require 'functions/FilterInput.php';
-//require 'functions/FillInfo.php';
-//require 'functions/Randomizer.php';
 require 'CommonFunc.php';
 require 'Clinic.php';
 require 'Person.php';
@@ -15,7 +12,6 @@ $information = 'You can run this following commands, just enter number of comman
     PHP_EOL . "[3] Get doctors' detailed information" .
     PHP_EOL . "[4] Get patients' detailed information" .
     PHP_EOL . "[5] Get clinic's name" .
-    PHP_EOL . '[6] Commands list' .
     PHP_EOL;
 
 echo PHP_EOL . "Enter clinic name -> ";
@@ -33,26 +29,30 @@ echo $information;
 while (TRUE) {
     echo 'Enter your action: ';
     $input = CommonFunc::filterInput();
-    if ($input == '1') {
-        print_r($clinic->getFullArrayDoctorsId());
-        echo 'Enter the number of the required doctor -> ';
-        $id = CommonFunc::filterInput();
-        $doctorId = $clinic->getDoctorsId(count: $id);
-        echo $clinic->getDoctor(personId: $doctorId);
-    } elseif ($input == '2') {
-        print_r($clinic->getFullArrayPatientsId());
-        echo 'Enter the number of the required patient -> ';
-        $id = CommonFunc::filterInput();
-        $patientId = $clinic->getPatientsId(count: $id);
-        echo $clinic->getPatient(personId: $patientId);
-    } elseif ($input == '3') {
-        print_r($clinic->getArrayDoctors());
-    } elseif ($input == '4') {
-        print_r($clinic->getArrayPatients());
-    } elseif ($input == '5') {
-        echo "You are working with clinic " . $clinic->getNameClinic() . " now." . PHP_EOL;
-    } elseif ($input == '6') {
-        echo $information;
+    switch ($input) {
+        case 1:
+            print_r($clinic->getFullArrayDoctorsId());
+            echo 'Enter the number of the required doctor -> ';
+            $id = CommonFunc::filterInput();
+            $doctorId = $clinic->getDoctorsId(count: $id);
+            echo $clinic->getDoctor(personId: $doctorId);
+            break;
+        case 2:
+            print_r($clinic->getFullArrayPatientsId());
+            echo 'Enter the number of the required patient -> ';
+            $id = CommonFunc::filterInput();
+            $patientId = $clinic->getPatientsId(count: $id);
+            echo $clinic->getPatient(personId: $patientId);
+            break;
+        case 3:
+            print_r($clinic->getArrayDoctors());
+            break;
+        case 4:
+            print_r($clinic->getArrayPatients());
+            break;
+        case 5:
+            echo "You are working with " . $clinic->getNameClinic() . " now." . PHP_EOL;
+            break;
     }
 }
 
