@@ -17,9 +17,6 @@ $information = 'You can run this following commands, just enter number of comman
     PHP_EOL . '[6] Commands list' .
     PHP_EOL;
 
-echo 'Welcome, head physician. Database available. Search:' . PHP_EOL;
-echo '1 [Update Database]' . PHP_EOL;
-
 echo PHP_EOL . "Enter clinic name -> ";
 $nameClinic = readline();
 echo PHP_EOL . "Enter the amount of doctors -> ";
