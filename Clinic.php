@@ -11,12 +11,18 @@ class Clinic
     private static array $doctorsId = [];
     private static string $nameClinic;
 
-    public static function setDoctorsId(string $personId, int $count): void
+    public static function setDoctorsId(
+        string $personId,
+        int    $count
+    ): void
     {
         self::$doctorsId[$count] = $personId;
     }
 
-    public static function setPatientsId(string $personId, int $count): void
+    public static function setPatientsId(
+        string $personId,
+        int    $count
+    ): void
     {
         self::$patientsId[$count] = $personId;
     }
@@ -31,9 +37,14 @@ class Clinic
         return self::$doctorsId[$count];
     }
 
-    public static function setFullArrayDoctorsId(string $personId, string $surname, string $name, int $count): void
+    public static function setFullArrayDoctorsId(
+        string $personId,
+        string $surname,
+        string $name,
+        int    $count
+    ): void
     {
-        $var = str_replace(PHP_EOL, '' ,"($personId) Dr.$surname $name");
+        $var = str_replace(PHP_EOL, '', "($personId) Dr.$surname $name");
         self::$fullArrayDoctorsId[$count] = $var;
     }
 
@@ -42,9 +53,14 @@ class Clinic
         return self::$fullArrayDoctorsId;
     }
 
-    public static function setFullArrayPatientsId(string $personId, string $surname, string $name, int $count): void
+    public static function setFullArrayPatientsId(
+        string $personId,
+        string $surname,
+        string $name,
+        int    $count
+    ): void
     {
-        $var = str_replace(PHP_EOL, '' ,"($personId) Patient $surname $name");
+        $var = str_replace(PHP_EOL, '', "($personId) Patient $surname $name");
         self::$fullArrayPatientsId[$count] = $var;
     }
 
@@ -73,7 +89,7 @@ class Clinic
         string $name,
         string $surname,
         string $specialization,
-        array $arrayDoctorsPatient
+        array  $arrayDoctorsPatient
     ): void
     {
         $arr = implode(', ', $arrayDoctorsPatient);
@@ -88,13 +104,22 @@ class Clinic
         return self::$arrayDoctors;
     }
 
-    public static function addPatientToDoctor(string $personId, string $member, string $patientId): void
+    public static function addPatientToDoctor(
+        string $personId,
+        string $member,
+        string $patientId
+    ): void
     {
         $arr = self::$arrayDoctors[$personId];
         self::$arrayDoctors[$personId] = $arr . $member . "($patientId)";
     }
 
-    public static function setArrayPatients(string $personId, string $name, string $surname, array $arrayDiseases): void
+    public static function setArrayPatients(
+        string $personId,
+        string $name,
+        string $surname,
+        array  $arrayDiseases
+    ): void
     {
         $arr = implode(', ', $arrayDiseases);
         $info = "$name $surname Diseases:" . $arr;

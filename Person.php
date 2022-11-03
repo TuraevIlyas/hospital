@@ -9,7 +9,10 @@ abstract class Person
     protected string $personId;
     protected int $age;
 
-    public function __construct(array $info, string $prefix)
+    public function __construct(
+        array $info,
+        string $prefix
+    )
     {
         $this->name = $info['name'];
         $this->surname = $info['surname'];
@@ -63,9 +66,4 @@ abstract class Person
         return $this->personId;
     }
 
-    public function getFullInfo(): string
-    {
-        return "Name - $this->name" . "Surname - $this->surname" . "Gender - $this->gender" . PHP_EOL ."Age - $this->age" . PHP_EOL .
-            "Personal id - $this->personId";
-    }
 }

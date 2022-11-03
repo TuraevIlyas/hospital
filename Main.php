@@ -39,14 +39,14 @@ while (TRUE) {
         print_r(Clinic::getFullArrayDoctorsId());
         echo 'Enter the number of the required doctor -> ';
         $id = filterInput();
-        $doctorId = Clinic::getDoctorsId($id);
-        echo Clinic::getDoctor($doctorId);
+        $doctorId = Clinic::getDoctorsId(count: $id);
+        echo Clinic::getDoctor(personId: $doctorId);
     } elseif ($input == '2') {
         print_r(Clinic::getFullArrayPatientsId());
         echo 'Enter the number of the required patient -> ';
         $id = filterInput();
-        $patientId = Clinic::getPatientsId($id);
-        echo Clinic::getPatient($patientId);
+        $patientId = Clinic::getPatientsId(count: $id);
+        echo Clinic::getPatient(personId: $patientId);
     } elseif ($input == '3') {
         print_r(Clinic::getArrayDoctors());
     } elseif ($input == '4') {
