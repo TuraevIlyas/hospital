@@ -32,26 +32,29 @@ echo $information;
 while (TRUE) {
     echo 'Enter your action: ';
     $input = filterInput();
-    if ($input == '1') {
-        print_r(Clinic::getFullArrayDoctorsId());
-        echo 'Enter the number of the required doctor -> ';
-        $id = filterInput();
-        $doctorId = Clinic::getDoctorsId(count: $id);
-        echo Clinic::getDoctor(personId: $doctorId);
-    } elseif ($input == '2') {
-        print_r(Clinic::getFullArrayPatientsId());
-        echo 'Enter the number of the required patient -> ';
-        $id = filterInput();
-        $patientId = Clinic::getPatientsId(count: $id);
-        echo Clinic::getPatient(personId: $patientId);
-    } elseif ($input == '3') {
-        print_r(Clinic::getArrayDoctors());
-    } elseif ($input == '4') {
-        print_r(Clinic::getArrayPatients());
-    } elseif ($input == '5') {
-        echo "You are working with clinic " . Clinic::getNameClinic() . " now." . PHP_EOL;
-    } elseif ($input == '6') {
-        echo $information;
+    switch ($input) {
+        case 1:
+            print_r(Clinic::getFullArrayDoctorsId());
+            echo 'choose doctor id and enter there -> ';
+            $id = readline();
+            $doctorId = Clinic::getDoctorsId($id);
+            echo Clinic::getDoctor($doctorId);
+            break;
+        case 2:
+            print_r(Clinic::getFullArrayPatientsId());
+            echo 'choose patient id and enter there -> ';
+            $id = readline();
+            $patientId = Clinic::getPatientsId($id);
+            echo Clinic::getPatient($patientId);
+            break;
+        case 3:
+            print_r(Clinic::getArrayDoctors());
+            break;
+        case 4:
+            print_r(Clinic::getArrayPatients());
+            break;
+        case 5:
+            echo "You are in clinic: " . Clinic::getNameClinic() . PHP_EOL;
+            break;
     }
 }
-
