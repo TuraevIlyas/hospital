@@ -49,10 +49,6 @@ abstract class Person
         return $this->surname;
     }
 
-    public function getGender(): string
-    {
-        return $this->gender;
-    }
 
     public function getAge(): int
     {
@@ -63,5 +59,4 @@ abstract class Person
     {
         return $this->personId;
     }
-
 }

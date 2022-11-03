@@ -4,8 +4,8 @@ class CommonFunc
 {
     public static function fillMember(): array
     {
-        return ['name' => file('data/firstname.txt')[rand(0, count(file('data/firstname.txt')) - 1)],
-            'surname' => file('data/secondname.txt')[rand(0, count(file('data/secondname.txt')) - 1)],
+        return ['name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
+            'surname' => file('data/secondNames.txt')[rand(0, count(file('data/secondNames.txt')) - 1)],
             'age' => rand(18, 90),
             'specialization' => file('data/specialization.txt')[rand(0, 3)]
         ];

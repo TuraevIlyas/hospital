@@ -24,6 +24,11 @@ class Clinic
         $this->doctorsId[$count] = $personId;
     }
 
+    public function getDoctorsId(string $count): string
+    {
+        return $this->doctorsId[$count];
+    }
+
     public function setPatientsId(
         string $personId,
         int    $count
@@ -35,11 +40,6 @@ class Clinic
     public function getPatientsId(string $count): string
     {
         return $this->patientsId[$count];
-    }
-
-    public function getDoctorsId(string $count): string
-    {
-        return $this->doctorsId[$count];
     }
 
     public function setFullArrayDoctorsId(
@@ -116,8 +116,8 @@ class Clinic
         string $patientId
     ): void
     {
-        $arr = $this->arrayDoctors[$personId];
-        $this->arrayDoctors[$personId] = $arr . $member . "($patientId)";
+        $array = $this->arrayDoctors[$personId];
+        $this->arrayDoctors[$personId] = $array . $member . "($patientId)";
     }
 
     public function setArrayPatients(
