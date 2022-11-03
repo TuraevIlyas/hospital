@@ -2,8 +2,8 @@
 
 function fillMember(): array
 {
-    $firstName = file('data/firstname.txt');
-    $secondName = file('data/secondname.txt');
+    $firstName = file('data/firstNames.txt');
+    $secondName = file('data/secondNames.txt');
     $specialization = file('data/specialization.txt');
     $gender = ['M', 'F'];
     $info = ['name' => $firstName[rand(0, count($firstName) - 1)],

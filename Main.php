@@ -14,7 +14,6 @@ $information = 'You can run this following commands, just enter number of comman
     PHP_EOL . "[3] Get doctors' detailed information" .
     PHP_EOL . "[4] Get patients' detailed information" .
     PHP_EOL . "[5] Get clinic's name" .
-    PHP_EOL . '[6] Commands list' .
     PHP_EOL;
 
 echo PHP_EOL . "Enter clinic name -> ";
