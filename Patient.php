@@ -7,7 +7,7 @@ class Patient extends Person
     public function __construct($name, $surname, $gender, $age, $addressClinic, $personId, $diseases)
     {
         parent::__construct($name, $surname, $gender, $age, $addressClinic);
-        $this->diseases = $diseases;
+        $this->disseases = $diseases;
     }
 
     public function ageCheck()

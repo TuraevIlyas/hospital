@@ -8,6 +8,7 @@ class Person
     protected string $personId;
     protected string $addressClinic;
     protected int $age;
+    protected ?bool $hello;
 
     public function __construct($name, $surname, $gender, $age, $addressClinic, $personId)
     {
