@@ -14,6 +14,7 @@ function fillInfo(string $nameClinic, int $amountDoctors, int $amountPatients): 
             name: $doctor->getName(),
             surname: $doctor->getSurname(),
             specialization: $doctor->getSpecialization(),
+            age: $doctor->getAge(),
             arrayDoctorsPatient: $doctor->getArrayDoctorPatient()
         );
         Clinic::setFullArrayDoctorsId(
@@ -38,6 +39,7 @@ function fillInfo(string $nameClinic, int $amountDoctors, int $amountPatients): 
             personId: $patient->getPersonId(),
             name: $patient->getName(),
             surname: $patient->getSurname(),
+            age: $patient->getAge(),
             arrayDiseases: $patient->getDiseases()
         );
         $count = rand(0, $amountDoctors - 1);

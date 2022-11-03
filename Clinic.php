@@ -89,11 +89,12 @@ class Clinic
         string $name,
         string $surname,
         string $specialization,
+        int    $age,
         array  $arrayDoctorsPatient
     ): void
     {
         $arr = implode(', ', $arrayDoctorsPatient);
-        $info = "Dr. $name $surname, Specialization - $specialization  Patients:" . PHP_EOL . $arr;
+        $info = "Dr. $name $surname, Age - $age, Specialization - $specialization  Patients:" . PHP_EOL . $arr;
         $var = str_replace(PHP_EOL, '', $info);
         self::$arrayDoctors[$personId] = $var;
     }
@@ -118,11 +119,12 @@ class Clinic
         string $personId,
         string $name,
         string $surname,
+        int    $age,
         array  $arrayDiseases
     ): void
     {
         $arr = implode(', ', $arrayDiseases);
-        $info = "$name $surname Diseases:" . $arr;
+        $info = "$name $surname, Age - $age, Diseases:" . $arr;
         $var = str_replace(PHP_EOL, '', $info);
         self::$arrayPatients[$personId] = $var;
     }
