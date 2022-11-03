@@ -5,7 +5,6 @@ abstract class Person
 {
     protected string $name;
     protected string $surname;
-    protected string $gender;
     protected string $personId;
     protected int $age;
 
@@ -16,7 +15,6 @@ abstract class Person
     {
         $this->name = $info['name'];
         $this->surname = $info['surname'];
-        $this->gender = $info['gender'];
         $this->age = $info['age'];
         $this->personId = uniqid($prefix);
     }

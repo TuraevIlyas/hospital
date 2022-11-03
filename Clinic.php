@@ -3,41 +3,46 @@
 
 class Clinic
 {
-    private static array $arrayDoctors = [];
-    private static array $arrayPatients = [];
-    private static array $fullArrayDoctorsId = [];
-    private static array $fullArrayPatientsId = [];
-    private static array $patientsId = [];
-    private static array $doctorsId = [];
-    private static string $nameClinic;
+    private array $arrayDoctors = [];
+    private array $arrayPatients = [];
+    private array $fullArrayDoctorsId = [];
+    private array $fullArrayPatientsId = [];
+    private array $patientsId = [];
+    private array $doctorsId = [];
+    private string $nameClinic;
 
-    public static function setDoctorsId(
+    public function __construct($nameClinic)
+    {
+        $this->nameClinic=$nameClinic;
+    }
+
+    public function setDoctorsId(
         string $personId,
         int    $count
     ): void
     {
-        self::$doctorsId[$count] = $personId;
+        $this->doctorsId[$count] = $personId;
     }
 
-    public static function setPatientsId(
+    public function setPatientsId(
         string $personId,
         int    $count
     ): void
     {
-        self::$patientsId[$count] = $personId;
+        $this->patientsId[$count] = $personId;
     }
 
-    public static function getPatientsId(string $count): string
+    public function getPatientsId(string $count): string
     {
-        return self::$patientsId[$count];
+        return $this->patientsId[$count];
     }
 
-    public static function getDoctorsId(string $count): string
+    public function getDoctorsId(string $count): string
     {
-        return self::$doctorsId[$count];
+        return $this->doctorsId[$count];
     }
 
-    public static function setFullArrayDoctorsId(
+    public function setFullArrayDoctorsId(
         string $personId,
         string $surname,
         string $name,
@@ -45,15 +50,15 @@ class Clinic
     ): void
     {
         $var = str_replace(PHP_EOL, '', "($personId) Dr.$surname $name");
-        self::$fullArrayDoctorsId[$count] = $var;
+        $this->fullArrayDoctorsId[$count] = $var;
     }
 
-    public static function getFullArrayDoctorsId(): array
+    public function getFullArrayDoctorsId(): array
     {
-        return self::$fullArrayDoctorsId;
+        return $this->fullArrayDoctorsId;
     }
 
-    public static function setFullArrayPatientsId(
+    public function setFullArrayPatientsId(
         string $personId,
         string $surname,
         string $name,
@@ -61,30 +66,30 @@ class Clinic
     ): void
     {
         $var = str_replace(PHP_EOL, '', "($personId) Patient $surname $name");
-        self::$fullArrayPatientsId[$count] = $var;
+        $this->fullArrayPatientsId[$count] = $var;
     }
 
-    public static function getFullArrayPatientsId(): array
+    public function getFullArrayPatientsId(): array
     {
-        return self::$fullArrayPatientsId;
+        return $this->fullArrayPatientsId;
     }
 
-    public static function getArrayKeysDoctors(): array
+    public function getArrayKeysDoctors(): array
     {
-        return array_keys(self::$arrayDoctors);
+        return array_keys($this->arrayDoctors);
     }
 
-    public static function setNameClinic(string $nameClinic): void
+    public function setNameClinic(string $nameClinic): void
     {
-        self::$nameClinic = $nameClinic;
+        $this->nameClinic = $nameClinic;
     }
 
-    public static function getNameClinic(): string
+    public function getNameClinic(): string
     {
-        return self::$nameClinic;
+        return $this->nameClinic;
     }
 
-    public static function setArrayDoctors(
+    public function setArrayDoctors(
         string $personId,
         string $name,
         string $surname,
@@ -96,26 +101,26 @@ class Clinic
         $arr = implode(', ', $arrayDoctorsPatient);
         $info = "Dr. $name $surname, Age - $age, Specialization - $specialization  Patients:" . PHP_EOL . $arr;
         $var = str_replace(PHP_EOL, '', $info);
-        self::$arrayDoctors[$personId] = $var;
+        $this->arrayDoctors[$personId] = $var;
     }
 
-    public static function getArrayDoctors(): array
+    public function getArrayDoctors(): array
     {
         echo 'array of doctors: ' . PHP_EOL;
-        return self::$arrayDoctors;
+        return $this->arrayDoctors;
     }
 
-    public static function addPatientToDoctor(
+    public function addPatientToDoctor(
         string $personId,
         string $member,
         string $patientId
     ): void
     {
-        $arr = self::$arrayDoctors[$personId];
-        self::$arrayDoctors[$personId] = $arr . $member . "($patientId)";
+        $arr = $this->arrayDoctors[$personId];
+        $this->arrayDoctors[$personId] = $arr . $member . "($patientId)";
     }
 
-    public static function setArrayPatients(
+    public function setArrayPatients(
         string $personId,
         string $name,
         string $surname,
@@ -126,22 +131,22 @@ class Clinic
         $arr = implode(', ', $arrayDiseases);
         $info = "$name $surname, Age - $age, Diseases:" . $arr;
         $var = str_replace(PHP_EOL, '', $info);
-        self::$arrayPatients[$personId] = $var;
+        $this->arrayPatients[$personId] = $var;
     }
 
-    public static function getArrayPatients(): array
+    public function getArrayPatients(): array
     {
         echo 'array of patients: ' . PHP_EOL;
-        return self::$arrayPatients;
+        return $this->arrayPatients;
     }
 
-    public static function getDoctor(string $personId): string
+    public function getDoctor(string $personId): string
     {
-        return self::$arrayDoctors[$personId] . PHP_EOL;
+        return $this->arrayDoctors[$personId] . PHP_EOL;
     }
 
-    public static function getPatient(string $personId): string
+    public function getPatient(string $personId): string
     {
-        return self::$arrayPatients[$personId] . PHP_EOL;
+        return $this->arrayPatients[$personId] . PHP_EOL;
     }
 }
