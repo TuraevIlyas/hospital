@@ -1,6 +1,5 @@
 <?php
 
-
 class Patient extends Person
 {
     private array $diseases = [];

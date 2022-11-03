@@ -7,6 +7,7 @@ abstract class Person
     protected string $surname;
     protected string $personId;
     protected int $age;
+    protected ?bool $hello;
 
     public function __construct(
         array $info,
