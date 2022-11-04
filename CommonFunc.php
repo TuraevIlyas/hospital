@@ -4,11 +4,16 @@ class CommonFunc
 {
     public static function fillMember(): array
     {
-        return ['name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
+        $dataFromFile = [
+            'name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
             'surname' => file('data/secondNames.txt')[rand(0, count(file('data/secondNames.txt')) - 1)],
-            'age' => rand(18, 90),
+            'age' => rand(18, 90) . PHP_EOL,
             'specialization' => file('data/specialization.txt')[rand(0, 3)]
         ];
+        $dataFromFile['name'] = trim($dataFromFile['name'], PHP_EOL);
+        $dataFromFile['surname'] = trim($dataFromFile['surname'], PHP_EOL);
+        $dataFromFile['specialization'] = trim($dataFromFile['specialization'], PHP_EOL);
+        return $dataFromFile;
     }
 
     public static function filterInput()
@@ -29,12 +34,12 @@ class CommonFunc
 
     public static function fillInfo(
         string $nameClinic,
-        int $amountDoctors,
-        int $amountPatients
+        int    $amountDoctors,
+        int    $amountPatients
     ): object
     {
         $clinic = new Clinic($nameClinic);
-        echo 'Welcome to the ' . $clinic -> getNameClinic() . PHP_EOL;
+        echo 'Welcome to the ' . $clinic->getNameClinic() . PHP_EOL;
         for ($i = 1; $i <= $amountDoctors; $i++) {
             $doctor = new Doctor(
                 info: CommonFunc::fillMember(),

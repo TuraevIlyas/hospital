@@ -6,7 +6,7 @@ require 'Person.php';
 require 'Patient.php';
 require 'Doctor.php';
 
-$information = 'You can run this following commands, just enter number of commands -> ' .
+$information = 'You can run these following commands, just enter number of commands -> ' .
     PHP_EOL . '[1] Get actual list of doctors' .
     PHP_EOL . '[2] Get actual list of patients' .
     PHP_EOL . "[3] Get doctors' detailed information" .

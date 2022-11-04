@@ -49,8 +49,7 @@ class Clinic
         int    $count
     ): void
     {
-        $fullName = trim($surname, "\n") . " " . trim($name, "\n");
-        $var = str_replace('\n', ' ', "($personId) Dr.$fullName");
+        $var = str_replace('\n', ' ', "($personId) Dr.$name $surname");
         $this->fullArrayDoctorsId[$count] = $var;
     }
 
@@ -101,7 +100,7 @@ class Clinic
     ): void
     {
         $arr = implode(', ', $arrayDoctorsPatient);
-        $info = "Dr. $name $surname, Age - $age, Specialization - $specialization  Patients:" . PHP_EOL . $arr;
+        $info = "Dr. $name $surname; Age - $age; Specialization - $specialization;  Patients: " . PHP_EOL . $arr;
         $var = str_replace(PHP_EOL, '', $info);
         $this->arrayDoctors[$personId] = $var;
     }
@@ -131,7 +130,7 @@ class Clinic
     ): void
     {
         $arr = implode(', ', $arrayDiseases);
-        $info = "$name $surname, Age - $age, Diseases:" . $arr;
+        $info = "$name $surname, Age - $age, Diseases: " . $arr;
         $var = str_replace(PHP_EOL, '', $info);
         $this->arrayPatients[$personId] = $var;
     }
