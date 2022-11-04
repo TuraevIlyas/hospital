@@ -1,6 +1,6 @@
 <?php
 
-require 'CommonFunc.php';
+require 'FillFunctions.php';
 require 'Clinic.php';
 require 'Person.php';
 require 'Patient.php';
@@ -17,31 +17,31 @@ $information = 'You can run these following commands, just enter number of comma
 echo PHP_EOL . "Enter clinic name -> ";
 $nameClinic = readline();
 echo PHP_EOL . "Enter the amount of doctors -> ";
-$amountDoctors = CommonFunc::filterInput();
+$amountDoctors = FillFunctions::filterInput();
 echo PHP_EOL . "Enter the amount of patients -> ";
-$amountPatients = CommonFunc::filterInput();
+$amountPatients = FillFunctions::filterInput();
 
 
-$clinic = CommonFunc::fillInfo($nameClinic, $amountDoctors, $amountPatients);
+$clinic = FillFunctions::fillInfo($nameClinic, $amountDoctors, $amountPatients);
 
 echo $information;
 
-while (TRUE) {
-    echo 'Enter your action: ';
-    $input = CommonFunc::filterInput();
-    switch ($input) {
+while (true) {
+    echo PHP_EOL . 'Enter your action: ';
+    $inputData = FillFunctions::filterInput(); echo PHP_EOL;
+    switch ($inputData) {
         case 1:
             print_r($clinic->getFullArrayDoctorsId());
             echo 'Enter the number of the required doctor -> ';
-            $id = CommonFunc::filterInput();
-            $doctorId = $clinic->getDoctorsId(count: $id);
+            $inputId = FillFunctions::filterInput();
+            $doctorId = $clinic->getDoctorsId(count: $inputId);
             echo $clinic->getDoctor(personId: $doctorId);
             break;
         case 2:
             print_r($clinic->getFullArrayPatientsId());
             echo 'Enter the number of the required patient -> ';
-            $id = CommonFunc::filterInput();
-            $patientId = $clinic->getPatientsId(count: $id);
+            $inputId = FillFunctions::filterInput();
+            $patientId = $clinic->getPatientsId(count: $inputId);
             echo $clinic->getPatient(personId: $patientId);
             break;
         case 3:

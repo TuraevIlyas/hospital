@@ -7,7 +7,6 @@ abstract class Person
     protected string $surname;
     protected string $personId;
     protected int $age;
-    protected ?bool $hello;
 
     public function __construct(
         array $info,
@@ -18,26 +17,6 @@ abstract class Person
         $this->surname = $info['surname'];
         $this->age = $info['age'];
         $this->personId = uniqid($prefix);
-    }
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function setSurname(string $surname): void
-    {
-        $this->surname = $surname;
-    }
-
-    public function setGender(string $gender): void
-    {
-        $this->gender = $gender;
-    }
-
-    public function setAge(int $age): void
-    {
-        $this->age = $age;
     }
 
     public function getName(): string

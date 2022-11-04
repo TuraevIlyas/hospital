@@ -1,13 +1,13 @@
 <?php
 
-class CommonFunc
+class FillFunctions
 {
     public static function fillMember(): array
     {
         $dataFromFile = [
             'name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
             'surname' => file('data/secondNames.txt')[rand(0, count(file('data/secondNames.txt')) - 1)],
-            'age' => rand(18, 90) . PHP_EOL,
+            'age' => FillFunctions . phprand(18, 90),
         ];
         $dataFromFile['name'] = trim($dataFromFile['name'], PHP_EOL);
         $dataFromFile['surname'] = trim($dataFromFile['surname'], PHP_EOL);
@@ -16,18 +16,18 @@ class CommonFunc
 
     public static function filterInput()
     {
-        $input = readline();
+        $inputData = readline();
 
-        while (!is_numeric($input)) {
+        while (!is_numeric($inputData)) {
 
-            if ($input == 'exit') { // Program exit initialization
+            if ($inputData == 'exit') { // Program exit initialization
                 echo 'You have left the program. Goodbye';
                 exit;
             }
             echo 'Error: the numeric input needed.' . PHP_EOL . "Try again: ";
-            $input = readline();
+            $inputData = readline();
         }
-        return $input;
+        return $inputData;
     }
 
     public static function fillInfo(
@@ -37,10 +37,10 @@ class CommonFunc
     ): object
     {
         $clinic = new Clinic($nameClinic);
-        echo 'Welcome to the ' . $clinic->getNameClinic() . PHP_EOL;
+        echo PHP_EOL . 'Welcome to the "' . $clinic->getNameClinic() . '"' . PHP_EOL;
         for ($i = 1; $i <= $amountDoctors; $i++) {
             $doctor = new Doctor(
-                info: CommonFunc::fillMember(),
+                info: FillFunctions::fillMember(),
                 prefix: 'D'
             );
             $doctor->setSpecialization();
@@ -50,7 +50,7 @@ class CommonFunc
                 surname: $doctor->getSurname(),
                 specialization: $doctor->getSpecialization(),
                 age: $doctor->getAge(),
-                arrayDoctorsPatient: $doctor->getArrayDoctorPatient()
+                arrayDoctorPatients: $doctor->getArrayDoctorPatients()
             );
             $clinic->setFullArrayDoctorsId(
                 personId: $doctor->getPersonId(),
@@ -64,9 +64,9 @@ class CommonFunc
             );
         }
 
-        for ($a = 1; $a <= $amountPatients; $a++) {
+        for ($i = 1; $i <= $amountPatients; $i++) {
             $patient = new Patient(
-                info: CommonFunc::fillMember(),
+                info: FillFunctions::fillMember(),
                 prefix: 'P'
             );
             $patient->setDiseases();
@@ -87,11 +87,11 @@ class CommonFunc
                 personId: $patient->getPersonId(),
                 surname: $patient->getSurname(),
                 name: $patient->getName(),
-                count: $a
+                count: $i
             );
             $clinic->setPatientsId(
                 personId: $patient->getPersonId(),
-                count: $a
+                count: $i
             );
         }
         return $clinic;
