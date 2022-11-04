@@ -22,7 +22,7 @@ class Doctor extends Person
 
     public function setSpecialization(): void
     {
-        $this->specialization = file('data/specialization.txt')[rand(0, 3)];
+        $this->specialization = file('../data/specialization.txt')[rand(0, 3)];
         $this->specialization = trim($this->specialization, PHP_EOL);
     }
 

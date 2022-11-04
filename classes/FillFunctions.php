@@ -5,9 +5,9 @@ class FillFunctions
     public static function fillMember(): array
     {
         $dataFromFile = [
-            'name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
-            'surname' => file('data/secondNames.txt')[rand(0, count(file('data/secondNames.txt')) - 1)],
-            'age' => FillFunctions . phprand(18, 90),
+            'name' => file('../data/firstNames.txt')[rand(0, count(file('../data/firstNames.txt')) - 1)],
+            'surname' => file('../data/secondNames.txt')[rand(0, count(file('../data/secondNames.txt')) - 1)],
+            'age' => rand(18, 90),
         ];
         $dataFromFile['name'] = trim($dataFromFile['name'], PHP_EOL);
         $dataFromFile['surname'] = trim($dataFromFile['surname'], PHP_EOL);
