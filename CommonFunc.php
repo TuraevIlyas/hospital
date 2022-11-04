@@ -8,11 +8,9 @@ class CommonFunc
             'name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
             'surname' => file('data/secondNames.txt')[rand(0, count(file('data/secondNames.txt')) - 1)],
             'age' => rand(18, 90) . PHP_EOL,
-            'specialization' => file('data/specialization.txt')[rand(0, 3)]
         ];
         $dataFromFile['name'] = trim($dataFromFile['name'], PHP_EOL);
         $dataFromFile['surname'] = trim($dataFromFile['surname'], PHP_EOL);
-        $dataFromFile['specialization'] = trim($dataFromFile['specialization'], PHP_EOL);
         return $dataFromFile;
     }
 
@@ -45,6 +43,7 @@ class CommonFunc
                 info: CommonFunc::fillMember(),
                 prefix: 'D'
             );
+            $doctor->setSpecialization();
             $clinic->setArrayDoctors(
                 personId: $doctor->getPersonId(),
                 name: $doctor->getName(),

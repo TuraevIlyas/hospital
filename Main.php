@@ -51,7 +51,7 @@ while (TRUE) {
             print_r($clinic->getArrayPatients());
             break;
         case 5:
-            echo "You are working with " . $clinic->getNameClinic() . " now." . PHP_EOL;
+            echo "You are working with '" . $clinic->getNameClinic() . "' now." . PHP_EOL;
             break;
     }
 }

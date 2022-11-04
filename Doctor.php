@@ -12,7 +12,6 @@ class Doctor extends Person
     )
     {
         parent::__construct($info, $prefix);
-        $this->specialization = $info['specialization'];
         $this->arrayDoctorPatient = [];
     }
 
@@ -21,9 +20,10 @@ class Doctor extends Person
         return $this->arrayDoctorPatient;
     }
 
-    public function setSpecialization(string $specialization): void
+    public function setSpecialization(): void
     {
-        $this->specialization = $specialization;
+        $this->specialization = file('data/specialization.txt')[rand(0, 3)];
+        $this->specialization = trim($this->specialization, PHP_EOL);
     }
 
     public function getSpecialization(): string
