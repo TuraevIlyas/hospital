@@ -17,6 +17,7 @@ class Patient extends Person
     {
         $diseases = file(filename: 'data/diseases.txt');
         $countOfArray = count($diseases);
+
         for ($i = 1; $i <= rand(1, 3); $i++) {
             $this->diseases[] = $diseases[rand(0, $countOfArray - 1)];
         }
