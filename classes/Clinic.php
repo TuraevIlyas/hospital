@@ -88,7 +88,7 @@ class Clinic
         string $patientId
     ): void
     {
-        $this->arrayDoctors[$personId] = $this->arrayDoctors[$personId] . $member . "($patientId)" . " ";
+        $this->arrayDoctors[$personId] = $this->arrayDoctors[$personId] . $member . "[$patientId]" . " ";
     }
 
     public function setArrayDoctors(
@@ -100,7 +100,7 @@ class Clinic
         array  $arrayDoctorPatients
     ): void
     {
-        $doctorInfo = "Dr. $name $surname; Age - $age; Specialization - $specialization;  Patients: " . implode(', ', $arrayDoctorPatients);
+        $doctorInfo = "Dr. $name $surname; Age - $age; Specialization - $specialization;  Patients: " . implode($arrayDoctorPatients);
         $this->arrayDoctors[$personId] = $doctorInfo;
     }
 
@@ -117,13 +117,11 @@ class Clinic
 
     public function getArrayDoctors(): array
     {
-        echo 'Array of doctors: ' . PHP_EOL;
         return $this->arrayDoctors;
     }
 
     public function getArrayPatients(): array
     {
-        echo 'Array of patients: ' . PHP_EOL;
         return $this->arrayPatients;
     }
 

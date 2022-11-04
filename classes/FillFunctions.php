@@ -20,8 +20,8 @@ class FillFunctions
 
         while (!is_numeric($inputData)) {
 
-            if ($inputData == 'exit') { // Program exit initialization
-                echo 'You have left the program. Goodbye';
+            if ($inputData == 'exit' or $inputData == 'EXIT') {
+                echo PHP_EOL . PHP_EOL . '              You have left the program. Goodbye!!!' . PHP_EOL . PHP_EOL;
                 exit;
             }
             echo 'Error: the numeric input needed.' . PHP_EOL . "Try again: ";
