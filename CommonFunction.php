@@ -1,6 +1,6 @@
 <?php
 
-class CommonFunc
+class CommonFunction
 {
     public static function fillDoctor(): array
     {
@@ -45,7 +45,7 @@ class CommonFunc
         echo 'Welcome to the ' . $clinic->getNameClinic() . PHP_EOL;
         for ($i = 1; $i <= $amountDoctors; $i++) {
             $doctor = new Doctor(
-                info: CommonFunc::fillDoctor(),
+                info: CommonFunction::fillDoctor(),
                 prefix: 'D'
             );
 
@@ -73,7 +73,7 @@ class CommonFunc
 
         for ($a = 1; $a <= $amountPatients; $a++) {
             $patient = new Patient(
-                info: CommonFunc::fillPatient(),
+                info: CommonFunction::fillPatient(),
                 prefix: 'P'
             );
 

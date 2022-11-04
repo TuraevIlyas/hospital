@@ -49,8 +49,8 @@ class Clinic
         int    $count
     ): void
     {
-        $var = str_replace(PHP_EOL, '', "($personId) Dr.$surname $name");
-        $this->fullArrayDoctorsId[$count] = $var;
+        $variable = str_replace(PHP_EOL, '', "($personId) Dr.$surname $name");
+        $this->fullArrayDoctorsId[$count] = $variable;
     }
 
     public function getFullArrayDoctorsId(): array
@@ -65,8 +65,8 @@ class Clinic
         int    $count
     ): void
     {
-        $var = str_replace(PHP_EOL, '', "($personId) Patient $surname $name");
-        $this->fullArrayPatientsId[$count] = $var;
+        $variable = str_replace(PHP_EOL, '', "($personId) Patient $surname $name");
+        $this->fullArrayPatientsId[$count] = $variable;
     }
 
     public function getFullArrayPatientsId(): array
@@ -98,15 +98,15 @@ class Clinic
         array  $arrayDoctorsPatient
     ): void
     {
-        $arr = implode(', ', $arrayDoctorsPatient);
-        $info = "Dr. $name $surname, Age - $age, Specialization - $specialization  Patients:" . PHP_EOL . $arr;
-        $var = str_replace(PHP_EOL, '', $info);
-        $this->arrayDoctors[$personId] = $var;
+        $array = implode(', ', $arrayDoctorsPatient);
+        $info = "Dr. $name $surname, Age - $age, Specialization - $specialization Patients:" . $array;
+        $variable = str_replace(PHP_EOL, '', $info);
+        $this->arrayDoctors[$personId] = $info;
     }
 
     public function getArrayDoctors(): array
     {
-        echo 'array of doctors: ' . PHP_EOL;
+        echo 'List of doctors: ' . PHP_EOL;
         return $this->arrayDoctors;
     }
 
@@ -128,25 +128,25 @@ class Clinic
         array  $arrayDiseases
     ): void
     {
-        $arr = implode(', ', $arrayDiseases);
-        $info = "$name $surname, Age - $age, Diseases:" . $arr;
-        $var = str_replace(PHP_EOL, '', $info);
-        $this->arrayPatients[$personId] = $var;
+        $array = implode(', ', $arrayDiseases);
+        $info = "$name $surname, Age - $age, Diseases: " . $array;
+        $variable = str_replace(PHP_EOL, '', $info);
+        $this->arrayPatients[$personId] = $variable;
     }
 
     public function getArrayPatients(): array
     {
-        echo 'array of patients: ' . PHP_EOL;
+        echo 'List of patients: ' . PHP_EOL;
         return $this->arrayPatients;
     }
 
     public function getDoctor(string $personId): string
     {
-        return $this->arrayDoctors[$personId] . PHP_EOL;
+        return PHP_EOL . $this->arrayDoctors[$personId];
     }
 
     public function getPatient(string $personId): string
     {
-        return $this->arrayPatients[$personId] . PHP_EOL;
+        return PHP_EOL . $this->arrayPatients[$personId];
     }
 }
