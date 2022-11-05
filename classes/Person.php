@@ -19,26 +19,6 @@ abstract class Person
         $this->personId = uniqid($prefix);
     }
 
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function setSurname(string $surname): void
-    {
-        $this->surname = $surname;
-    }
-
-    public function setGender(string $gender): void
-    {
-        $this->gender = $gender;
-    }
-
-    public function setAge(int $age): void
-    {
-        $this->age = $age;
-    }
-
     public function getName(): string
     {
         return $this->name;

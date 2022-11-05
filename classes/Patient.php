@@ -1,6 +1,5 @@
 <?php
 
-
 class Patient extends Person
 {
     private array $diseases = [];
@@ -15,11 +14,10 @@ class Patient extends Person
 
     public function setDiseases(): void
     {
-        $diseases = file(filename: 'data/diseases.txt');
-        $countOfArray = count($diseases);
-
-        for ($i = 1; $i <= rand(1, 3); $i++) {
-            $this->diseases[] = $diseases[rand(0, $countOfArray - 1)];
+        $diseasesFromFile = file(filename: '../data/diseases.txt');
+        $countOfArray = count($diseasesFromFile);
+        for ($i = 1; $i <= rand(1, 6); $i++) {
+            array_push($this->diseases, trim($diseasesFromFile[rand(0, $countOfArray - 1)], PHP_EOL));
         }
         $this->diseases = array_unique($this->diseases);
     }

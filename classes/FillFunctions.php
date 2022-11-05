@@ -1,14 +1,17 @@
 <?php
 
-class CommonFunction
+class FillFunctions
 {
     public static function fillDoctor(): array
     {
-        return ['name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
-            'surname' => file('data/secondNames.txt')[rand(0, count(file('data/secondNames.txt')) - 1)],
+        $dataFromFile = [
+            'name' => file('../data/firstNames.txt')[rand(0, count(file('../data/firstNames.txt')) - 1)],
+            'surname' => file('../data/secondNames.txt')[rand(0, count(file('../data/secondNames.txt')) - 1)],
             'age' => rand(18, 90),
-            'specialization' => file('data/specialization.txt')[rand(0, 3)]
         ];
+        $dataFromFile['name'] = trim($dataFromFile['name'], PHP_EOL);
+        $dataFromFile['surname'] = trim($dataFromFile['surname'], PHP_EOL);
+        return $dataFromFile;
     }
 
     public static function fillPatient(): array
@@ -21,18 +24,18 @@ class CommonFunction
 
     public static function filterInput()
     {
-        $input = readline();
+        $inputData = readline();
 
-        while (!is_numeric($input)) {
+        while (!is_numeric($inputData)) {
 
-            if ($input == 'exit') { // Program exit initialization
-                echo 'You have left the program. Goodbye';
+            if ($inputData == 'exit' or $inputData == 'EXIT') {
+                echo PHP_EOL . PHP_EOL . '              You have left the program. Goodbye!!!' . PHP_EOL . PHP_EOL;
                 exit;
             }
             echo 'Error: the numeric input needed.' . PHP_EOL . "Try again: ";
-            $input = readline();
+            $inputData = readline();
         }
-        return $input;
+        return $inputData;
     }
 
     public static function fillInfo(
@@ -42,20 +45,20 @@ class CommonFunction
     ): object
     {
         $clinic = new Clinic($nameClinic);
-        echo 'Welcome to the ' . $clinic->getNameClinic() . PHP_EOL;
+        echo PHP_EOL . 'Welcome to the "' . $clinic->getNameClinic() . '"' . PHP_EOL;
         for ($i = 1; $i <= $amountDoctors; $i++) {
             $doctor = new Doctor(
-                info: CommonFunction::fillDoctor(),
+                info: FillFunctions::fillMember(),
                 prefix: 'D'
             );
-
+            $doctor->setSpecialization();
             $clinic->setArrayDoctors(
                 personId: $doctor->getPersonId(),
                 name: $doctor->getName(),
                 surname: $doctor->getSurname(),
                 specialization: $doctor->getSpecialization(),
                 age: $doctor->getAge(),
-                arrayDoctorsPatient: $doctor->getArrayDoctorPatient()
+                arrayDoctorPatients: $doctor->getArrayDoctorPatients()
             );
 
             $clinic->setFullArrayDoctorsId(
@@ -71,9 +74,9 @@ class CommonFunction
             );
         }
 
-        for ($a = 1; $a <= $amountPatients; $a++) {
+        for ($i = 1; $i <= $amountPatients; $i++) {
             $patient = new Patient(
-                info: CommonFunction::fillPatient(),
+                info: FillFunctions::fillMember(),
                 prefix: 'P'
             );
 
@@ -99,12 +102,12 @@ class CommonFunction
                 personId: $patient->getPersonId(),
                 surname: $patient->getSurname(),
                 name: $patient->getName(),
-                count: $a
+                count: $i
             );
 
             $clinic->setPatientsId(
                 personId: $patient->getPersonId(),
-                count: $a
+                count: $i
             );
         }
 
