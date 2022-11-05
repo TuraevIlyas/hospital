@@ -2,40 +2,16 @@
 
 class FillFunctions
 {
-    public static function fillDoctor(): array
+    public static function fillMember(): array
     {
         $dataFromFile = [
             'name' => file('../data/firstNames.txt')[rand(0, count(file('../data/firstNames.txt')) - 1)],
             'surname' => file('../data/secondNames.txt')[rand(0, count(file('../data/secondNames.txt')) - 1)],
-            'age' => rand(18, 90),
+            'age' => rand(18, 90) . PHP_EOL,
         ];
         $dataFromFile['name'] = trim($dataFromFile['name'], PHP_EOL);
         $dataFromFile['surname'] = trim($dataFromFile['surname'], PHP_EOL);
         return $dataFromFile;
-    }
-
-    public static function fillPatient(): array
-    {
-        return ['name' => file('data/firstNames.txt')[rand(0, count(file('data/firstNames.txt')) - 1)],
-            'surname' => file('data/secondNames.txt')[rand(0, count(file('data/secondNames.txt')) - 1)],
-            'age' => rand(18, 90),
-        ];
-    }
-
-    public static function filterInput()
-    {
-        $inputData = readline();
-
-        while (!is_numeric($inputData)) {
-
-            if ($inputData == 'exit' or $inputData == 'EXIT') {
-                echo PHP_EOL . PHP_EOL . '              You have left the program. Goodbye!!!' . PHP_EOL . PHP_EOL;
-                exit;
-            }
-            echo 'Error: the numeric input needed.' . PHP_EOL . "Try again: ";
-            $inputData = readline();
-        }
-        return $inputData;
     }
 
     public static function fillInfo(
@@ -112,5 +88,21 @@ class FillFunctions
         }
 
         return $clinic;
+    }
+
+    public static function filterInput()
+    {
+        $inputData = readline();
+
+        while (!is_numeric($inputData)) {
+
+            if ($inputData == 'exit' or $inputData == 'EXIT') {
+                echo PHP_EOL . PHP_EOL . '              You have left the program. Goodbye!!!' . PHP_EOL . PHP_EOL;
+                exit;
+            }
+            echo 'Error: the numeric input needed.' . PHP_EOL . "Try again -> ";
+            $inputData = readline();
+        }
+        return $inputData;
     }
 }

@@ -34,6 +34,10 @@ while (true) {
             echo str_replace(['Array', '(', ')'],'',print_r($clinic->getFullArrayDoctorsId(),true));
             echo 'Enter the number of the required doctor -> ';
             $inputId = FillFunctions::filterInput();
+            while (!array_key_exists($inputId, $clinic->getFullArrayDoctorsId())) {
+                echo 'Error: doctor not found. Try again -> ';
+                $inputId = FillFunctions::filterInput();
+            }
             $doctorId = $clinic->getDoctorsId(count: $inputId);
             echo "=> " . $clinic->getDoctor(personId: $doctorId);
             break;
@@ -41,6 +45,10 @@ while (true) {
             echo str_replace(['Array', '(', ')'],'',print_r($clinic->getFullArrayPatientsId(),true));
             echo 'Enter the number of the required patient -> ';
             $inputId = FillFunctions::filterInput();
+            while (!array_key_exists($inputId, $clinic->getFullArrayDoctorsId())) {
+                echo 'Error: patient not found. Try again -> ';
+                $inputId = FillFunctions::filterInput();
+            }
             $patientId = $clinic->getPatientsId(count: $inputId);
             echo "=> " . $clinic->getPatient(personId: $patientId);
             break;

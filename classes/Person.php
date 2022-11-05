@@ -29,7 +29,6 @@ abstract class Person
         return $this->surname;
     }
 
-
     public function getAge(): int
     {
         return $this->age;
