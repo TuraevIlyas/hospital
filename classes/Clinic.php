@@ -54,7 +54,7 @@ class Clinic
         int    $count
     ): void
     {
-        $this->fullArrayDoctorsId[$count] = str_replace('\n', ' ', "($personId) Dr.$name $surname");
+        $this->fullArrayDoctorsId[$count] = str_replace(PHP_EOL, ' ', "($personId) Dr. $name $surname");
     }
 
     public function getFullArrayDoctorsId(): array

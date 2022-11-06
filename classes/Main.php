@@ -61,6 +61,9 @@ while (true) {
         case 5:
             echo "=> You are working with '" . $clinic->getNameClinic() . "' now." . PHP_EOL;
             break;
+        default:
+            echo "Error: the number of proposed is required to enter. Please try again.";
+            break;
     }
 }
 
